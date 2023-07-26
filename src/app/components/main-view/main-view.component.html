@@ -1,0 +1,38 @@
+
+<div class="container p-5">
+
+  <div class=" d-flex flex-column gap-3 align-items-center" style="height: 200px;">
+    <div class="h1">
+      To Do List
+    </div>
+    <div class="h2">
+      Pending
+    </div>
+    <div class="bg-white rounded p-3 d-flex flex-row gap-2 shadow-sm" style="width: 600px;">
+  
+      <div class="w-50">
+        <input  type="text" class="form-control w-100" id="formGroupExampleInput" [(ngModel)]="name" placeholder="Name">
+      </div>
+    
+
+    
+      <div class="ms-auto">
+        <button class="btn btn-primary" (click)="addTask()"> Add</button>
+      </div>
+    </div>
+    
+    <div *ngFor="let task of tasks$ | async">
+      <app-task *ngIf="!task.completed" [task]="task"/>
+    </div>
+
+    <div class="h2 mt-3">
+      Completed
+    </div>
+    <div *ngFor="let task of tasks$ | async">
+      <app-task *ngIf="task.completed" [task]="task"/>
+    </div>
+    
+    
+  </div>
+
+</div>

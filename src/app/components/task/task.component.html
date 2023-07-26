@@ -1,0 +1,17 @@
+<div class="bg-white rounded p-3 d-flex flex-row gap-2 shadow-sm" style="width: 600px;">
+  
+  <div class="h3" style="font-weight: bold;">
+    {{task.name}}
+  </div>
+
+  <div *ngIf="!task.completed" class="ms-auto">
+    <button class="btn btn-success" (click)="toggleTask()">Complete</button>
+  </div>
+  <div *ngIf="task.completed" class="ms-auto">
+    <button class="btn btn-warning" (click)="toggleTask()">Move Back</button>
+  </div>
+
+  <div>
+    <button class="btn btn-danger" (click)="deleteTask()"> Delete</button>
+  </div>
+</div>
